@@ -7,35 +7,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#f6f7fb;
-      --card:#ffffff;
-      --text:#141924;
-      --muted:#6b7280;
-      --line:#e7e9ef;
-      --pill:#eef2ff;
-      --shadow:0 12px 24px rgba(0,0,0,.06), 0 2px 10px rgba(0,0,0,.04);
-      --radius:18px;
-      --radius-sm:14px;
+      --bg:#f6f7fb; --card:#ffffff; --text:#141924; --muted:#6b7280;
+      --line:#e7e9ef; --shadow:0 12px 24px rgba(0,0,0,.06), 0 2px 10px rgba(0,0,0,.04);
+      --radius:18px; --radius-sm:14px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
     .wrap{max-width:1200px;margin:28px auto;padding:0 16px}
 
-    /* ===== Header / Brand ===== */
-    .brand{
-      display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:18px;
-    }
-    .brand .logo{
-      height:44px;width:auto;display:block;filter: drop-shadow(0 2px 6px rgba(0,0,0,.08));
-    }
-    h1{
-      font-size:32px;line-height:1.1;margin:0;letter-spacing:.2px;font-weight:700;text-align:center;
-    }
-    .tagline{
-      margin:4px 0 0;font-size:13px;color:var(--muted);text-align:center;
-    }
+    /* Header */
+    .brand{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:18px}
+    .brand .logo{height:44px;width:auto;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.08))}
+    h1{font-size:32px;line-height:1.1;margin:0;letter-spacing:.2px;font-weight:700;text-align:center}
 
-    /* ===== Grid / Cards ===== */
+    /* Grid / Cards */
     .grid{display:grid;gap:18px;grid-template-columns:repeat(4,minmax(0,1fr))}
     @media (max-width:1100px){ .grid{grid-template-columns:repeat(3,1fr);} }
     @media (max-width:820px){  .grid{grid-template-columns:repeat(2,1fr);} }
@@ -46,14 +31,9 @@
       border-radius:var(--radius); box-shadow:var(--shadow);
       padding:14px; display:flex;flex-direction:column; min-height:340px;
     }
-    .card h3{
-      margin:2px 6px 10px; font-size:15px; font-weight:700; display:flex; align-items:center; gap:8px;
-      letter-spacing:.2px;
-    }
-    .underline{
-      height:2px;background:linear-gradient(90deg,#cad5ff40,#cad5ff00);border-radius:2px;margin:0 6px 10px
-    }
-    .list{display:flex;flex-direction:column;gap:8px;overflow:auto;padding:0 6px 6px}
+    .card h3{margin:2px 6px 10px; font-size:15px; font-weight:700; display:flex; align-items:center; gap:8px; letter-spacing:.2px}
+    .underline{height:2px;background:linear-gradient(90deg,#cad5ff40,#cad5ff00);border-radius:2px;margin:0 6px 10px}
+    .list{display:flex;flex-direction:column;gap:8px;overflow:auto;padding:0 6px 6px; -webkit-overflow-scrolling:touch}
     .item{
       display:flex; align-items:center; gap:10px; padding:10px 12px;
       border:1px solid var(--line); border-radius:var(--radius-sm); background:#fff;
@@ -61,15 +41,9 @@
     }
     .item:hover{transform:translateY(-1px); background:#fbfdff; box-shadow:0 2px 10px rgba(0,0,0,.04)}
     .emoji{width:22px;text-align:center;opacity:.9}
-    .link{
-      color:#1f2937;text-decoration:none;font-weight:600;
-      padding:.5px 0; border-bottom:1px solid transparent;
-    }
+    .link{color:#1f2937;text-decoration:none;font-weight:600;padding:.5px 0;border-bottom:1px solid transparent}
     .link:hover{color:#2563eb;border-bottom-color:#dbeafe}
     .muted{color:var(--muted);font-size:12px;margin-top:12px;text-align:center}
-
-    /* Чуть мягче скролл у списков на iOS/мак */
-    .list{ -webkit-overflow-scrolling: touch; }
   </style>
 </head>
 <body>
@@ -77,11 +51,9 @@
 
     <!-- Header with centered logo + title -->
     <header class="brand">
-      <!-- Замените src на точный путь вашего логотипа при необходимости -->
+      <!-- Подставьте точный путь к вашему логотипу при необходимости -->
       <img class="logo" src="https://merino.tech/cdn/shop/files/logo_merino.png" alt="Merino Tech" />
       <h1>AI Tools Directory</h1>
-      <!-- Можно скрыть/удалить подзаголовок, если не нужен -->
-      <!-- <p class="tagline">Curated map of modern AI tools</p> -->
     </header>
 
     <div class="grid">
@@ -210,9 +182,53 @@
           <div class="item"><span class="emoji">🔑</span><a class="link" href="https://keychain.ai">Keychain</a></div>
         </div>
       </section>
+
+      <!-- NEW: AI detection -->
+      <section class="card">
+        <h3>🕵️ AI detection</h3>
+        <div class="underline"></div>
+        <div class="list">
+          <div class="item"><span class="emoji">🛡️</span><a class="link" href="https://undetectable.ai">Undetectable AI</a></div>
+          <div class="item"><span class="emoji">👁️</span><a class="link" href="https://pimeyes.com">PimEyes</a></div>
+          <div class="item"><span class="emoji">🔎</span><a class="link" href="https://gptzero.me">GPTZero</a></div>
+          <div class="item"><span class="emoji">🧩</span><a class="link" href="https://quillbot.com/humanize">AI Humanizer (QuillBot)</a></div>
+          <div class="item"><span class="emoji">🧑‍💻</span><a class="link" href="https://facecheck.id">FaceCheck ID</a></div>
+          <div class="item"><span class="emoji">🧪</span><a class="link" href="https://www.zerogpt.com">ZeroGPT</a></div>
+          <div class="item"><span class="emoji">📄</span><a class="link" href="https://copyleaks.com/ai-content-detector">Copyleaks AI Detector</a></div>
+          <div class="item"><span class="emoji">✅</span><a class="link" href="https://originality.ai">Originality.AI</a></div>
+          <div class="item"><span class="emoji">🧰</span><a class="link" href="https://humanizeaitools.com">Humanize AI Tools</a></div>
+          <div class="item"><span class="emoji">🛡️</span><a class="link" href="https://deepware.ai">Deepware (Deepfake Detector)</a></div>
+        </div>
+      </section>
+
+      <!-- NEW: E-mail -->
+      <section class="card">
+        <h3>✉️ E-mail</h3>
+        <div class="underline"></div>
+        <div class="list">
+          <div class="item"><span class="emoji">📧</span><a class="link" href="https://www.klaviyo.com">Klaviyo</a></div>
+          <div class="item"><span class="emoji">📬</span><a class="link" href="https://www.mailerlite.com">MailerLite</a></div>
+          <div class="item"><span class="emoji">📨</span><a class="link" href="https://www.getresponse.com">GetResponse</a></div>
+          <div class="item"><span class="emoji">✍️</span><a class="link" href="https://www.hoppycopy.co">HoppyCopy</a></div>
+          <div class="item"><span class="emoji">🧠</span><a class="link" href="https://www.notion.so/help/whats-new-notion-mail">Notion Mail</a></div>
+          <div class="item"><span class="emoji">🐝</span><a class="link" href="https://www.beehiiv.com">beehiiv AI</a></div>
+          <div class="item"><span class="emoji">📣</span><a class="link" href="https://www.hostinger.com/reach">Hostinger Reach</a></div>
+          <div class="item"><span class="emoji">⚡</span><a class="link" href="https://www.superhuman.com">Superhuman</a></div>
+          <div class="item"><span class="emoji">🧪</span><a class="link" href="https://www.benchmarkemail.com">Benchmark Email</a></div>
+          <div class="item"><span class="emoji">🤖</span><a class="link" href="https://www.copy.ai/email">Free AI Email Writer</a></div>
+        </div>
+      </section>
     </div>
 
     <p class="muted">Tip: чтобы добавить/удалить инструмент — продублируйте блок <code>.item</code> и измените ссылку/текст.</p>
   </div>
+
+  <!-- Открывать все ссылки каталога в новой вкладке -->
+  <script>
+    document.querySelectorAll('a.link').forEach(a=>{
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+    });
+  </script>
 </body>
 </html>
