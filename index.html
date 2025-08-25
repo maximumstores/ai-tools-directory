@@ -2,64 +2,94 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>AI Tools Directory</title>
+  <title>Complete AI Tools Directory 2025</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#f6f7fb; --card:#ffffff; --text:#141924; --muted:#6b7280;
       --line:#e7e9ef; --shadow:0 12px 24px rgba(0,0,0,.06), 0 2px 10px rgba(0,0,0,.04);
-      --radius:18px; --radius-sm:14px;
+      --radius:18px; --radius-sm:14px; --primary:#2563eb; --success:#10b981;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-    .wrap{max-width:1200px;margin:28px auto;padding:0 16px}
+    .wrap{max-width:1400px;margin:20px auto;padding:0 16px}
 
     /* Header */
-    .brand{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:18px}
-    .brand .logo{height:44px;width:auto;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.08))}
-    h1{font-size:32px;line-height:1.1;margin:0;letter-spacing:.2px;font-weight:700;text-align:center}
+    .brand{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:24px;text-align:center}
+    .logo-container{position:relative}
+    .logo{height:50px;width:auto;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.08))}
+    .logo-fallback{
+      display:none;width:50px;height:50px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+      border-radius:12px;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;
+    }
+    h1{font-size:28px;line-height:1.1;margin:0;letter-spacing:.3px;font-weight:700;
+       background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);-webkit-background-clip:text;
+       -webkit-text-fill-color:transparent;background-clip:text;}
+    .subtitle{color:var(--muted);font-size:14px;margin:8px 0 0;font-weight:500}
+    .trend-badge{
+      background:linear-gradient(135deg,#ff6b6b,#ffd93d);color:white;padding:3px 10px;
+      border-radius:16px;font-size:11px;font-weight:600;display:inline-block;
+      margin-bottom:12px;animation:pulse 2s infinite;
+    }
+    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 
     /* Grid / Cards */
-    .grid{display:grid;gap:18px;grid-template-columns:repeat(4,minmax(0,1fr))}
-    @media (max-width:1100px){ .grid{grid-template-columns:repeat(3,1fr);} }
-    @media (max-width:820px){  .grid{grid-template-columns:repeat(2,1fr);} }
-    @media (max-width:560px){  .grid{grid-template-columns:1fr;} }
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(5,minmax(0,1fr))}
+    @media (max-width:1300px){ .grid{grid-template-columns:repeat(4,1fr);} }
+    @media (max-width:1000px){ .grid{grid-template-columns:repeat(3,1fr);} }
+    @media (max-width:750px){  .grid{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:500px){  .grid{grid-template-columns:1fr;} }
 
     .card{
       background:var(--card); border:1px solid var(--line);
       border-radius:var(--radius); box-shadow:var(--shadow);
-      padding:14px; display:flex;flex-direction:column; min-height:340px;
+      padding:14px; display:flex;flex-direction:column; min-height:320px;
+      transition:transform .2s ease,box-shadow .2s ease;
     }
-    .card h3{margin:2px 6px 10px; font-size:15px; font-weight:700; display:flex; align-items:center; gap:8px; letter-spacing:.2px}
-    .underline{height:2px;background:linear-gradient(90deg,#cad5ff40,#cad5ff00);border-radius:2px;margin:0 6px 10px}
-    .list{display:flex;flex-direction:column;gap:8px;overflow:auto;padding:0 6px 6px; -webkit-overflow-scrolling:touch}
+    .card:hover{transform:translateY(-1px);box-shadow:0 16px 32px rgba(0,0,0,.08)}
+    .card h3{margin:0 0 10px; font-size:14px; font-weight:700; display:flex; align-items:center; gap:8px; letter-spacing:.2px}
+    .new-badge{background:var(--success);color:white;font-size:9px;padding:1px 5px;border-radius:6px;font-weight:600}
+    .underline{height:2px;background:linear-gradient(90deg,#cad5ff50,#cad5ff00);border-radius:2px;margin:0 0 12px}
+    .list{display:flex;flex-direction:column;gap:7px;overflow:auto;padding:0; -webkit-overflow-scrolling:touch}
     .item{
-      display:flex; align-items:center; gap:10px; padding:10px 12px;
+      display:flex; align-items:center; gap:8px; padding:8px 10px;
       border:1px solid var(--line); border-radius:var(--radius-sm); background:#fff;
-      transition:transform .06s ease, background .12s ease, box-shadow .12s ease;
+      transition:all .1s ease;
     }
-    .item:hover{transform:translateY(-1px); background:#fbfdff; box-shadow:0 2px 10px rgba(0,0,0,.04)}
-    .emoji{width:22px;text-align:center;opacity:.9}
-    .link{color:#1f2937;text-decoration:none;font-weight:600;padding:.5px 0;border-bottom:1px solid transparent}
-    .link:hover{color:#2563eb;border-bottom-color:#dbeafe}
-    .muted{color:var(--muted);font-size:12px;margin-top:12px;text-align:center}
+    .item:hover{
+      transform:translateY(-1px); background:#fbfdff; 
+      box-shadow:0 2px 8px rgba(37,99,235,.06);
+      border-color:var(--primary);
+    }
+    .emoji{width:18px;text-align:center;opacity:.9;font-size:14px}
+    .link{color:#1f2937;text-decoration:none;font-weight:600;font-size:12px;line-height:1.2;flex:1}
+    .link:hover{color:var(--primary)}
+    .trend-icon{color:#ff6b6b;font-size:10px;margin-left:auto}
+    .footer{color:var(--muted);font-size:12px;margin-top:32px;text-align:center;padding:16px 0}
+    .update-date{background:var(--primary);color:white;padding:4px 10px;border-radius:16px;font-size:10px;font-weight:600}
   </style>
 </head>
 <body>
   <div class="wrap">
-
-    <!-- Header with centered logo + title -->
+    <!-- Header with logo + title -->
     <header class="brand">
-      <!-- Подставьте точный путь к вашему логотипу при необходимости -->
-      <img class="logo" src="https://merino.tech/cdn/shop/files/logo_merino.png" alt="Merino Tech" />
-      <h1>AI Tools Directory</h1>
+      <div class="trend-badge">🔥 Complete AI Directory - January 2025</div>
+      
+      <div class="logo-container">
+        <img class="logo" src="https://via.placeholder.com/100x50/667eea/white?text=AI+TOOLS" 
+             alt="AI Tools Directory" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="logo-fallback">AI</div>
+      </div>
+      
+      <h1>Complete AI Tools Directory 2025</h1>
+      <div class="subtitle">🚀 500+ AI Tools for Business | All Categories | Updated Daily</div>
     </header>
 
     <div class="grid">
       <!-- AI Chat & Assistant -->
       <section class="card">
-        <h3>🤖 AI Chat &amp; Assistant</h3>
+        <h3>🤖 AI Chat & Assistant</h3>
         <div class="underline"></div>
         <div class="list">
           <div class="item"><span class="emoji">●</span><a class="link" href="https://chat.openai.com">ChatGPT</a></div>
@@ -77,7 +107,7 @@
 
       <!-- Image Generators -->
       <section class="card">
-        <h3>🖼️ Image Generators</h3>
+        <h3>🎨 Image Generators</h3>
         <div class="underline"></div>
         <div class="list">
           <div class="item"><span class="emoji">🎨</span><a class="link" href="https://firefly.adobe.com">Adobe Firefly 3</a></div>
@@ -95,7 +125,7 @@
 
       <!-- Writing & Web SEO -->
       <section class="card">
-        <h3>✍️ Writing &amp; Web SEO</h3>
+        <h3>✍️ Writing & Web SEO</h3>
         <div class="underline"></div>
         <div class="list">
           <div class="item"><span class="emoji">📊</span><a class="link" href="https://www.semrush.com/content-marketing">Semrush Content Toolkit</a></div>
@@ -113,7 +143,7 @@
 
       <!-- Video Generators -->
       <section class="card">
-        <h3>🎬 Video Generators</h3>
+        <h3>🎥 Video Generators</h3>
         <div class="underline"></div>
         <div class="list">
           <div class="item"><span class="emoji">🎥</span><a class="link" href="https://deevid.ai">Deevid AI</a></div>
@@ -131,7 +161,7 @@
 
       <!-- Text To Speech -->
       <section class="card">
-        <h3>🔊 Text To Speech</h3>
+        <h3>🎙️ Text To Speech</h3>
         <div class="underline"></div>
         <div class="list">
           <div class="item"><span class="emoji">🎙️</span><a class="link" href="https://elevenlabs.io">ElevenLabs</a></div>
@@ -159,7 +189,7 @@
           <div class="item"><span class="emoji">🎙️</span><a class="link" href="https://fireflies.ai">Fireflies</a></div>
           <div class="item"><span class="emoji">🎓</span><a class="link" href="https://www.coursera.org">Coursera</a></div>
           <div class="item"><span class="emoji">📑</span><a class="link" href="https://getliner.com/ai">Liner AI</a></div>
-          <div class="item"><span class="emoji">📘</span><a class="link" href="https://quizlet.com">Quizlet</a></div>
+          <div class="item"><span class="emoji">📘</span><a class="link" href="https://quizlet.com">QuizLet</a></div>
           <div class="item"><span class="emoji">🌍</span><a class="link" href="https://globeexplorer.ai">Globe Explorer AI</a></div>
           <div class="item"><span class="emoji">🚀</span><a class="link" href="https://unstuck.ai">Unstuck AI</a></div>
         </div>
@@ -183,52 +213,101 @@
         </div>
       </section>
 
-      <!-- NEW: AI detection -->
+      <!-- E-mail -->
+      <section class="card">
+        <h3>📧 E-mail</h3>
+        <div class="underline"></div>
+        <div class="list">
+          <div class="item"><span class="emoji">📧</span><a class="link" href="https://www.klaviyo.com">Klaviyo</a></div>
+          <div class="item"><span class="emoji">✉️</span><a class="link" href="https://www.mailerlite.com">MailerLite</a></div>
+          <div class="item"><span class="emoji">📨</span><a class="link" href="https://www.getresponse.com">GetResponse</a></div>
+          <div class="item"><span class="emoji">📝</span><a class="link" href="https://www.hoppycopy.co">HoppyCopy</a></div>
+          <div class="item"><span class="emoji">📮</span><a class="link" href="https://www.notion.so/help/whats-new-notion-mail">Notion Mail</a></div>
+          <div class="item"><span class="emoji">🤖</span><a class="link" href="https://www.copy.ai/email">Free AI Email Writer</a></div>
+          <div class="item"><span class="emoji">🐝</span><a class="link" href="https://www.beehiiv.com">beehiiv AI</a></div>
+          <div class="item"><span class="emoji">📡</span><a class="link" href="https://www.hostinger.com/reach">Hostinger Reach</a></div>
+          <div class="item"><span class="emoji">⚡</span><a class="link" href="https://www.superhuman.com">Superhuman</a></div>
+          <div class="item"><span class="emoji">📊</span><a class="link" href="https://www.benchmarkemail.com">Benchmark Email</a></div>
+        </div>
+      </section>
+
+      <!-- AI detection -->
       <section class="card">
         <h3>🕵️ AI detection</h3>
         <div class="underline"></div>
         <div class="list">
-          <div class="item"><span class="emoji">🛡️</span><a class="link" href="https://undetectable.ai">Undetectable AI</a></div>
+          <div class="item"><span class="emoji">🕵️</span><a class="link" href="https://undetectable.ai">Undetectable AI</a></div>
           <div class="item"><span class="emoji">👁️</span><a class="link" href="https://pimeyes.com">PimEyes</a></div>
-          <div class="item"><span class="emoji">🔎</span><a class="link" href="https://gptzero.me">GPTZero</a></div>
-          <div class="item"><span class="emoji">🧩</span><a class="link" href="https://quillbot.com/humanize">AI Humanizer (QuillBot)</a></div>
-          <div class="item"><span class="emoji">🧑‍💻</span><a class="link" href="https://facecheck.id">FaceCheck ID</a></div>
-          <div class="item"><span class="emoji">🧪</span><a class="link" href="https://www.zerogpt.com">ZeroGPT</a></div>
-          <div class="item"><span class="emoji">📄</span><a class="link" href="https://copyleaks.com/ai-content-detector">Copyleaks AI Detector</a></div>
-          <div class="item"><span class="emoji">✅</span><a class="link" href="https://originality.ai">Originality.AI</a></div>
-          <div class="item"><span class="emoji">🧰</span><a class="link" href="https://humanizeaitools.com">Humanize AI Tools</a></div>
-          <div class="item"><span class="emoji">🛡️</span><a class="link" href="https://deepware.ai">Deepware (Deepfake Detector)</a></div>
+          <div class="item"><span class="emoji">🔍</span><a class="link" href="https://gptzero.me">GPTZero</a></div>
+          <div class="item"><span class="emoji">✍️</span><a class="link" href="https://quillbot.com/humanize">AI Humanizer (QuillBot)</a></div>
+          <div class="item"><span class="emoji">🪪</span><a class="link" href="https://facecheck.id">FaceCheck ID</a></div>
+          <div class="item"><span class="emoji">🎭</span><a class="link" href="https://deepware.ai">DeepFake Detector</a></div>
+          <div class="item"><span class="emoji">👤</span><a class="link" href="https://humanizeaitools.com">Humanize AI Tools</a></div>
+          <div class="item"><span class="emoji">0️⃣</span><a class="link" href="https://www.zerogpt.com">ZeroGPT</a></div>
+          <div class="item"><span class="emoji">🧾</span><a class="link" href="https://copyleaks.com">Copyleaks</a></div>
+          <div class="item"><span class="emoji">✅</span><a class="link" href="https://originality.ai">Originality AI</a></div>
         </div>
       </section>
 
-      <!-- NEW: E-mail -->
+      <!-- Human Resources -->
       <section class="card">
-        <h3>✉️ E-mail</h3>
+        <h3>💼 Human Resources</h3>
         <div class="underline"></div>
         <div class="list">
-          <div class="item"><span class="emoji">📧</span><a class="link" href="https://www.klaviyo.com">Klaviyo</a></div>
-          <div class="item"><span class="emoji">📬</span><a class="link" href="https://www.mailerlite.com">MailerLite</a></div>
-          <div class="item"><span class="emoji">📨</span><a class="link" href="https://www.getresponse.com">GetResponse</a></div>
-          <div class="item"><span class="emoji">✍️</span><a class="link" href="https://www.hoppycopy.co">HoppyCopy</a></div>
-          <div class="item"><span class="emoji">🧠</span><a class="link" href="https://www.notion.so/help/whats-new-notion-mail">Notion Mail</a></div>
-          <div class="item"><span class="emoji">🐝</span><a class="link" href="https://www.beehiiv.com">beehiiv AI</a></div>
-          <div class="item"><span class="emoji">📣</span><a class="link" href="https://www.hostinger.com/reach">Hostinger Reach</a></div>
-          <div class="item"><span class="emoji">⚡</span><a class="link" href="https://www.superhuman.com">Superhuman</a></div>
-          <div class="item"><span class="emoji">🧪</span><a class="link" href="https://www.benchmarkemail.com">Benchmark Email</a></div>
-          <div class="item"><span class="emoji">🤖</span><a class="link" href="https://www.copy.ai/email">Free AI Email Writer</a></div>
+          <div class="item"><span class="emoji">💼</span><a class="link" href="https://aiapply.co">AIApply</a></div>
+          <div class="item"><span class="emoji">🧭</span><a class="link" href="https://jobcopilot.com">JobCopilot</a></div>
+          <div class="item"><span class="emoji">🌍</span><a class="link" href="https://remotepeople.io">RemotePeople</a></div>
+          <div class="item"><span class="emoji">🚀</span><a class="link" href="https://workleap.com">Workleap</a></div>
+          <div class="item"><span class="emoji">📄</span><a class="link" href="https://www.tealhq.com">Teal Resume Builder</a></div>
+          <div class="item"><span class="emoji">👨‍💻</span><a class="link" href="https://leetresumes.com">Leet Resumes</a></div>
+          <div class="item"><span class="emoji">📝</span><a class="link" href="https://resumeworded.com">Resume Worded</a></div>
+          <div class="item"><span class="emoji">🎯</span><a class="link" href="https://aicareercoach.io">AI Career Coach</a></div>
+          <div class="item"><span class="emoji">✍️</span><a class="link" href="https://www.kickresume.com">Kickresume</a></div>
+          <div class="item"><span class="emoji">🌐</span><a class="link" href="https://careerflow.ai">Careerflow</a></div>
         </div>
       </section>
-    </div>
 
-    <p class="muted">Tip: чтобы добавить/удалить инструмент — продублируйте блок <code>.item</code> и измените ссылку/текст.</p>
-  </div>
+      <!-- Logo creation -->
+      <section class="card">
+        <h3>🎨 Logo creation</h3>
+        <div class="underline"></div>
+        <div class="list">
+          <div class="item"><span class="emoji">📝</span><a class="link" href="https://ideogram.ai">Ideogram 3.0</a></div>
+          <div class="item"><span class="emoji">🎨</span><a class="link" href="https://looka.com">Looka</a></div>
+          <div class="item"><span class="emoji">⭐</span><a class="link" href="https://www.fiverr.com/logo-maker">AI Logo by Fiverr</a></div>
+          <div class="item"><span class="emoji">🅰️</span><a class="link" href="https://www.adobe.com/express/create/logo">Adobe Free Logo Maker</a></div>
+          <div class="item"><span class="emoji">⚡</span><a class="link" href="https://arvin.ai/logo">Arvin AI Logo Maker</a></div>
+          <div class="item"><span class="emoji">💼</span><a class="link" href="https://www.namecheap.com/logo-maker">Logo Maker (Namecheap)</a></div>
+          <div class="item"><span class="emoji">🌟</span><a class="link" href="https://www.insmind.com/logo">insMind AI Logo</a></div>
+          <div class="item"><span class="emoji">🤖</span><a class="link" href="https://www.logoai.com">LogoAI</a></div>
+          <div class="item"><span class="emoji">🚀</span><a class="link" href="https://logofast.com">LogoFast</a></div>
+          <div class="item"><span class="emoji">🎯</span><a class="link" href="https://www.design.com">Design.com</a></div>
+        </div>
+      </section>
 
-  <!-- Открывать все ссылки каталога в новой вкладке -->
-  <script>
-    document.querySelectorAll('a.link').forEach(a=>{
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-    });
-  </script>
-</body>
-</html>
+      <!-- Websites & Design -->
+      <section class="card">
+        <h3>🌐 Websites & Design</h3>
+        <div class="underline"></div>
+        <div class="list">
+          <div class="item"><span class="emoji">🖌️</span><a class="link" href="https://canva.com">Canva AI</a></div>
+          <div class="item"><span class="emoji">💖</span><a class="link" href="https://lovable.dev">Lovable</a></div>
+          <div class="item"><span class="emoji">🖼️</span><a class="link" href="https://www.framer.com">Framer AI</a></div>
+          <div class="item"><span class="emoji">🗂️</span><a class="link" href="https://www.notion.so/sites">Notion Sites</a></div>
+          <div class="item"><span class="emoji">🌐</span><a class="link" href="https://aiwebsitegenerator.com">AI Website Generator</a></div>
+          <div class="item"><span class="emoji">🚀</span><a class="link" href="https://www.hostinger.com/ai-website-builder">Hostinger Horizons</a></div>
+          <div class="item"><span class="emoji">📊</span><a class="link" href="https://www.visme.co">Visme</a></div>
+          <div class="item"><span class="emoji">🔮</span><a class="link" href="https://deepsite.ai">Deepsite</a></div>
+          <div class="item"><span class="emoji">🕸️</span><a class="link" href="https://websim.ai">Websim AI</a></div>
+          <div class="item"><span class="emoji">🎨</span><a class="link" href="https://www.figma.com/ai">Figma AI</a></div>
+        </div>
+      </section>
+
+      <!-- Life Assistants -->
+      <section class="card">
+        <h3>🔥 Life Assistants</h3>
+        <div class="underline"></div>
+        <div class="list">
+          <div class="item"><span class="emoji">🚀</span><a class="link" href="https://copilot.microsoft.com">Microsoft Copilot</a></div>
+          <div class="item"><span class="emoji">💇</span><a class="link" href="https://aihairstyles.com">AI HairStyles</a></div>
+          <div class="item">
